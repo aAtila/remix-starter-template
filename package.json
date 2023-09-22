@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev --manual -c \"node server.js\"",
+    "dev": "remix dev --manual -c \"node --inspect server.js\"",
     "start": "cross-env NODE_ENV=production node ./server.js",
     "typecheck": "tsc",
     "lint": "eslint \"app/**/*.+(ts|tsx)\"",
