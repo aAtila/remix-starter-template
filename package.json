@@ -4,8 +4,8 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev --manual -c \"node --inspect server.js\"",
+    "build": "vite build && vite build --ssr",
+    "dev": "node --inspect server.js",
     "start": "cross-env NODE_ENV=production node ./server.js",
     "typecheck": "tsc",
     "lint": "eslint \"app/**/*.+(ts|tsx)\"",
@@ -46,7 +46,9 @@
     "postcss": "^8.4.31",
     "prettier": "3.0.3",
     "tailwindcss": "^3.3.5",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "vite": "^4.5.0",
+    "vite-tsconfig-paths": "^4.2.1"
   },
   "engines": {
     "node": ">=18.0.0"
