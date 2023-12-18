@@ -8,10 +8,7 @@ import compression from 'compression';
 import express from 'express';
 import morgan from 'morgan';
 import sourceMapSupport from 'source-map-support';
-import {
-	unstable_createViteServer, // provides middleware for handling asset requests
-	unstable_loadViteServerBuild, // handles initial render requests
-} from '@remix-run/dev';
+import { unstable_viteServerBuildModuleId } from '@remix-run/dev';
 
 sourceMapSupport.install();
 installGlobals();
@@ -19,7 +16,13 @@ installGlobals();
 const vite =
 	process.env.NODE_ENV === 'production'
 		? undefined
-		: await unstable_createViteServer();
+		: await import('vite').then(({ createServer }) =>
+				createServer({
+					server: {
+						middlewareMode: true,
+					},
+				}),
+			);
 
 const app = express();
 
@@ -50,7 +53,7 @@ app.all(
 	'*',
 	createRequestHandler({
 		build: vite
-			? () => unstable_loadViteServerBuild(vite)
+			? () => vite.ssrLoadModule(unstable_viteServerBuildModuleId)
 			: await import('./build/index.js'),
 	}),
 );
