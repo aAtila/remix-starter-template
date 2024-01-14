@@ -4,7 +4,6 @@ import compression from 'compression';
 import express from 'express';
 import morgan from 'morgan';
 import sourceMapSupport from 'source-map-support';
-import { unstable_viteServerBuildModuleId } from '@remix-run/dev';
 
 sourceMapSupport.install();
 installGlobals();
@@ -49,7 +48,7 @@ app.all(
 	'*',
 	createRequestHandler({
 		build: vite
-			? () => vite.ssrLoadModule(unstable_viteServerBuildModuleId)
+			? () => vite.ssrLoadModule('virtual:remix/server-build')
 			: await import('./build/index.js'),
 	}),
 );
