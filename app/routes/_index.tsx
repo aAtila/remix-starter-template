@@ -15,7 +15,7 @@ export const loader = () => {
 export default function Index() {
 	const { message } = useLoaderData<typeof loader>();
 	return (
-		<div>
+		<div className="grid grid-cols-1 gap-4 p-4">
 			<h1 className="text-2xl font-bold">My next 🔥 project!</h1>
 			<small>{message}</small>
 		</div>
