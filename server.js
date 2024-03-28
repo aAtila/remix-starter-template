@@ -30,8 +30,8 @@ if (viteDevServer) {
 } else {
 	// Remix fingerprints its assets so we can cache forever.
 	app.use(
-		'/build',
-		express.static('public/build', { immutable: true, maxAge: '1y' }),
+		'/assets',
+		express.static('build/client/assets', { immutable: true, maxAge: '1y' }),
 	);
 }
 
