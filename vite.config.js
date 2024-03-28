@@ -8,11 +8,11 @@ export default defineConfig({
 		port: 3333,
 	},
 	plugins: [
+		tsconfigPaths(),
 		remixDevTools(),
 		remix({
 			ignoredRouteFiles: ['**/.*'],
 			serverModuleFormat: 'esm',
 		}),
-		tsconfigPaths(),
 	],
 });
