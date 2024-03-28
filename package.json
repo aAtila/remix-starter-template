@@ -4,7 +4,8 @@
 	"sideEffects": false,
 	"type": "module",
 	"scripts": {
-		"dev": "node ./server.js",
+		"dev": "remix vite:dev",
+		"dev:debug": "NODE_OPTIONS=\"--inspect\" node ./server.js",
 		"build": "remix vite:build",
 		"start": "cross-env NODE_ENV=production node ./server.js",
 		"typecheck": "tsc",
