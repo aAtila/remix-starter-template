@@ -1,4 +1,4 @@
-export function Header() {
+export default function Header() {
 	return (
 		<header>
 			<div className="flex items-center justify-between p-2 text-xs md:flex-row md:justify-between">

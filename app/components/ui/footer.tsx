@@ -1,6 +1,6 @@
 import { COMPANY_NAME, DOMAIN } from '~/config/constants';
 
-export function Footer() {
+export default function Footer() {
 	const year = new Date().getFullYear();
 
 	return (

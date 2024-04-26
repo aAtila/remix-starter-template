@@ -1,7 +1,7 @@
 import type { LinksFunction } from '@remix-run/node';
 import { Outlet } from '@remix-run/react';
-import { Footer } from '~/components/ui/footer';
-import { Header } from '~/components/ui/header';
+import Footer from '~/components/ui/footer';
+import Header from '~/components/ui/header';
 
 export const links: LinksFunction = () => {
 	return [
